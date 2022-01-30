@@ -1,5 +1,6 @@
 package zad11;
 import java.lang.Comparable;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.time.LocalDate;
@@ -21,13 +22,19 @@ public class ArrayUtil {
         t2.add(8);
 
         ArrayList<LocalDate> t3 = new ArrayList<>();
-        t3.add(LocalDate.of(1979, 8, 31));
-        t3.add(LocalDate.of(1999, 12, 7));
-        t3.add(LocalDate.of(2000, 2, 25));
-        t3.add(LocalDate.of(1989, 11, 8));
+        LocalDate aa = LocalDate.of(1979, 8, 31);
+        LocalDate ab = LocalDate.of(1999, 12, 7);
+        LocalDate ac = LocalDate.of(2000, 2, 25);
+        LocalDate ad = LocalDate.of(1989, 11, 8);
+        t3.add(aa);
+        t3.add(ab);
+        t3.add(ac);
+        t3.add(ad);
         System.out.println(isSorted(t3));
         selectionSort(t3);
         System.out.println(isSorted(t3));
+
+
     }
 
     public static <T extends Comparable<? super T>> boolean isSorted(ArrayList<T> tab1)
@@ -69,5 +76,14 @@ public class ArrayUtil {
             tab1.set(i, temp);
         }
 
+    }
+    public static <T extends Comparable<T>> boolean isSorted2(T[] tab)
+    {
+        for(int i=0; i<tab.length-1; i++)
+        {
+            if (tab[i].compareTo(tab[i+1]) > 0)
+                return false;
+        }
+        return true;
     }
 }
